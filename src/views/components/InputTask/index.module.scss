@@ -18,6 +18,7 @@
     &Checkbox {
         width: 20px;
         height: 20px;
+        cursor: pointer;
     }
 
     &Title {
@@ -25,8 +26,24 @@
         line-height: 1.2;
     }
 
+    &EditTitle {
+        font: 1rem/1em 'Robot'sans-serif;
+        border: none;
+        padding: 5px;
+        background: none;
+        box-shadow: 0 4px 0 -3px #3f72af;
+        outline: none;
+
+        &:focus {
+            border: 3px solid #3f72af;
+            border-radius: 5px;
+            box-shadow: none;
+        }
+    }
+
     &Edit,
-    &Remove {
+    &Remove,
+    &Save {
         display: block;
         border: none;
         background: none no-repeat center center;
@@ -45,5 +62,9 @@
 
     &Remove {
         background-image: url('./images/trash.svg')
+    }
+
+    &Save {
+        background-image: url('./images/check.svg')
     }
 }
