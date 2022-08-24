@@ -3,6 +3,7 @@ import { FC, useEffect } from 'react'
 //Zustand store
 import { useToDoStore } from '../../data/stores/useToDoStore'
 import { InputPlus } from '../components/InputPlus'
+import { InputTask } from '../components/InputTask'
 
 //styles
 import styles from './index.module.scss'
@@ -17,7 +18,7 @@ export const App: FC = () => {
   ])
 
   // console.log(useToDoStore)   // DEBUG
-  console.table(tasks) // DEBUG
+  // console.table(tasks) // DEBUG
 
   return (
     <article className={styles.article}>
@@ -26,7 +27,20 @@ export const App: FC = () => {
         {/* update store with value coming from InputPlus*/}
         <InputPlus onAdd={(title) => title && createTask(title)} />
       </section>
-      <section className={styles.articleSection}></section>
+      <section className={styles.articleSection}>
+        {!tasks.length && (
+          <p className={styles.articleText}>There is no any task.</p>
+        )}
+        {tasks.map((task) => (
+          <InputTask
+            id={task.id}
+            title={task.title}
+            onDone={removeTask}
+            onEdit={updateTask}
+            onRemove={removeTask}
+          />
+        ))}
+      </section>
     </article>
   )
 }
