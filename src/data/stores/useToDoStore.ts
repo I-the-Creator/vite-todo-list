@@ -22,6 +22,11 @@ export const useToDoStore = create<IToDoStore>((set, get) => ({
       title: 'Default Task',
       createdAt: Date.now(),
     },
+    {
+      id: generateId(),
+      title: 'Default Task 2',
+      createdAt: Date.now(),
+    },
   ],
   createTask: (title) => {
     const { tasks } = get() // get the 'tasks' from store. get() returns all store
