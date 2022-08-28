@@ -22,7 +22,7 @@ export const App: FC = () => {
 
   return (
     <article className={styles.article}>
-      <h1 className={styles.articleTitle}>To Do App (VITE)</h1>
+      <h1 className={styles.articleTitle}>To Do App</h1>
       <section className={styles.articleSection}>
         {/* update store with value coming from InputPlus*/}
         <InputPlus onAdd={(title) => title && createTask(title)} />
@@ -33,6 +33,7 @@ export const App: FC = () => {
         )}
         {tasks.map((task) => (
           <InputTask
+            key={task.id}
             id={task.id}
             title={task.title}
             onDone={removeTask}
