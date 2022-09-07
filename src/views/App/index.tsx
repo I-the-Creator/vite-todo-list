@@ -29,7 +29,7 @@ export const App: FC = () => {
       </section>
       <section className={styles.articleSection}>
         {!tasks.length && (
-          <p className={styles.articleText}>There is no any task.</p>
+          <p className={styles.articleText}>There is no tasks</p>
         )}
         {tasks.map((task) => (
           <InputTask
